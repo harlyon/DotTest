@@ -1,0 +1,3 @@
+export const GET_HEADLINES = "GET_HEADLINES";
+export const SEARCHED_NEWS = "SEARCHED_NEWS";
+export const FILTERED_DATE = "FILTERED_DATE";
