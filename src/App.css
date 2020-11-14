@@ -1,13 +1,16 @@
-.pic  {
+.pic {
   width: 100% important;
   height: auto important;
 }
 
 .pic-image {
+  min-height: 120px;
+  max-height: auto;
+  float: left;
+  margin: 3px;
+  padding: 3px;
+}
 
-    min-height: 120px;
-    max-height: auto;
-    float: left;
-    margin: 3px;
-    padding: 3px;
+.date {
+  margin-right: 15px;
 }

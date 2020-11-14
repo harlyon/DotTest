@@ -14,7 +14,7 @@ const newsReducer = (state, action) => {
         all_news: action.payload.articles,
         loading: false,
       };
-      case FILTERED_DATE:
+    case FILTERED_DATE:
       return {
         ...state,
         all_news: action.payload.articles,

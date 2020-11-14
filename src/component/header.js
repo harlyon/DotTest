@@ -1,4 +1,4 @@
-const { default: Search } = require("./search")
+const { default: Search } = require("./search");
 
 const Header = () => {
   return (
@@ -10,12 +10,10 @@ const Header = () => {
             <li>
               <Search />
             </li>
-
           </ul>
-
         </div>
       </div>
-  </div>
+    </div>
   );
 };
 

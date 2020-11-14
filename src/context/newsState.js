@@ -3,25 +3,21 @@ import NewsReducer from "./newsReducer";
 import NewsContext from "./newsContext";
 import { GET_HEADLINES, SEARCHED_NEWS, FILTERED_DATE } from "./types";
 import axios from "axios";
-
 const NewsState = (props) => {
   const initialState = {
     all_news: [],
-    loading: true
+    loading: true,
   };
   const [state, dispatch] = useReducer(NewsReducer, initialState);
-
   const getHeadlines = async () => {
     const res = await axios.get(
       "https://newsapi.org/v2/top-headlines?country=us&apiKey=a391fff851774b5d8804cf3027c4b8e8"
     );
-
     dispatch({
       type: GET_HEADLINES,
-      payload: res.data
+      payload: res.data,
     });
   };
-
   const searchNews = async (text) => {
     if (text === "") {
       getHeadlines();
@@ -29,28 +25,25 @@ const NewsState = (props) => {
       const res = await axios.get(
         `https://newsapi.org/v2/everything?q=${text}&apiKey=a391fff851774b5d8804cf3027c4b8e8`
       );
-
       dispatch({
         type: SEARCHED_NEWS,
-        payload: res.data
+        payload: res.data,
       });
     }
   };
-
   const filteredDates = async (date) => {
-    if(!date) {
+    if (date === "") {
       getHeadlines();
     } else {
       const res = await axios.get(
-        `https://newsapi.org/v2/top-headlines??q=${date}&country=us&apiKey=a391fff851774b5d8804cf3027c4b8e8`
+        `https://newsapi.org/v2/everything?q=${date}&apiKey=a391fff851774b5d8804cf3027c4b8e8`
       );
       dispatch({
         type: FILTERED_DATE,
-        payload: res.date
-      })
+        payload: res.data,
+      });
     }
-  }
-
+  };
   return (
     <NewsContext.Provider
       value={{
@@ -58,12 +51,11 @@ const NewsState = (props) => {
         loading: state.loading,
         getHeadlines,
         searchNews,
-        filteredDates
+        filteredDates,
       }}
     >
       {props.children}
     </NewsContext.Provider>
   );
 };
-
 export default NewsState;
