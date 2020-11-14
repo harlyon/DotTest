@@ -17,12 +17,14 @@ const Search = () => {
     <div className="option-inner">
       <div className="others-options d-flex align-items-center">
         <div className="option-item d-flex">
-        <DatePicker
+        {/* <DatePicker
           format='yyyy-MM-dd'
           date={date}
           value={date}
           onDateChange={setDate}
-          onChange={(e) => filteredDates(date(e))}
+          onChange={(e) => {
+           // filteredDates(date(e))
+          }}
           locale={enGB}
           className="search-box"
         >
@@ -33,7 +35,11 @@ const Search = () => {
               {...inputProps}
             />
           )}
-        </DatePicker>
+        </DatePicker> */}
+         <input type="date" onChange={(e) => {
+            console.log("Selcted Date", e.target.value)
+            filteredDates(e.target.value)
+         }} />
           <form className="search-box">
             <input
               type="text"
