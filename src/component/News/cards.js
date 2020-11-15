@@ -1,5 +1,6 @@
-import { useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import NewsContext from "../../context/newsContext";
+import Side from "../Side";
 import Card from "./card";
 
 const Cards = () => {
@@ -7,19 +8,22 @@ const Cards = () => {
 
   useEffect(() => {
     getHeadlines();
-  }, []);
+  }, [getHeadlines]);
 
   return (
-    <div>
-      <section className="news-area ptb-50">
-        <div className="container-fluid">
-          <div className="row">
-            {all_news.map((item, index) => {
-              return <Card key={index} item={item} />;
-            })}
+    <div className="container">
+      <div className="row">
+        <main className="posts-listing col-lg-8">
+          <div className="container">
+            <div className="row">
+              {all_news.map((item, index) => {
+                return <Card key={index} item={item} />;
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </main>
+        <Side />
+      </div>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
 import NewsState from "./context/newsState";
 import Main from "./component/Main";
+import "./App.css";
 
 function App() {
   return (

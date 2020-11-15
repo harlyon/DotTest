@@ -6,31 +6,21 @@ const Search = () => {
   const { searchNews, filteredDates } = useContext(NewsContext);
 
   return (
-    <div className="container">
-      <div className="option-inner">
-        <div className="others-options d-flex align-items-center">
-          <div className="option-item d-flex">
-            <form className="search-form date">
-              <input
-                type="date"
-                className="form-control"
-                onChange={(e) => {
-                  filteredDates(e.target.value);
-                }}
-              />
-            </form>
-            <form className="search-box">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Search for.."
-                onChange={(e) => searchNews(e.target.value)}
-              />
-            </form>
-          </div>
-        </div>
+    <form className="search-form">
+      <div className="form-group">
+        <input
+          type="search"
+          onChange={(e) => searchNews(e.target.value)}
+          placeholder="What are you looking for?"
+        />
+        <br />
+        <input
+          type="date"
+          onChange={(e) => filteredDates(e.target.value)}
+          placeholder="date search"
+        />
       </div>
-    </div>
+    </form>
   );
 };
 export default Search;
