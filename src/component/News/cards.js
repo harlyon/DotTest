@@ -8,7 +8,7 @@ const Cards = () => {
 
   useEffect(() => {
     getHeadlines();
-  }, [getHeadlines]);
+  }, []);
 
   return (
     <div className="container">
