@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Steps
 
-$ cd inventory-application
+$ clone the repo
 
 $ cd ..
 
