@@ -11,7 +11,7 @@ const NewsState = (props) => {
   const [state, dispatch] = useReducer(NewsReducer, initialState);
   const getHeadlines = async () => {
     const res = await axios.get(
-      "https://newsapi.org/v2/top-headlines?country=us&apiKey=a391fff851774b5d8804cf3027c4b8e8"
+      ""
     );
     dispatch({
       type: GET_HEADLINES,
@@ -23,7 +23,7 @@ const NewsState = (props) => {
       getHeadlines();
     } else {
       const res = await axios.get(
-        `https://newsapi.org/v2/everything?q=${text}&apiKey=a391fff851774b5d8804cf3027c4b8e8`
+        ``
       );
       dispatch({
         type: SEARCHED_NEWS,
@@ -36,7 +36,7 @@ const NewsState = (props) => {
       getHeadlines();
     } else {
       const res = await axios.get(
-        `https://newsapi.org/v2/everything?q=${date}&apiKey=a391fff851774b5d8804cf3027c4b8e8`
+        ``
       );
       dispatch({
         type: FILTERED_DATE,
